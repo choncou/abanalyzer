@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'statistics2-pure-ruby'
+require 'statistics2_pure_ruby'
 
 module ABAnalyzer
   class ABTest
@@ -35,11 +35,11 @@ module ABAnalyzer
     end
 
     def chisquare_p
-      1 - Statistics2.chi2dist(df, chisquare_score)
+      1 - Statistics2PureRuby.chi2dist(df, chisquare_score)
     end
 
     def gtest_p
-      1 - Statistics2.chi2dist(df, 2 * gtest_score)
+      1 - Statistics2PureRuby.chi2dist(df, 2 * gtest_score)
     end
 
     private

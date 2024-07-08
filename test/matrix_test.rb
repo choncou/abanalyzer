@@ -3,7 +3,7 @@
 require 'minitest/autorun'
 require 'abanalyzer'
 
-class TestMatrix < MiniTest::Test
+class TestMatrix < Minitest::Test
   def setup
     @values = { rep: { male: 200, female: 250 }, dem: { male: 150, female: 300 }, ind: { male: 50, female: 50 } }
   end

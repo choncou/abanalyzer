@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'statistics2-pure-ruby'
+require 'statistics2_pure_ruby'
 
 module ABAnalyzer
   # Calculate the minimum sample size (per group) based on the desire to detect
@@ -14,8 +14,8 @@ module ABAnalyzer
     pbar = (p1 + p2) / 2.0
     sides = 2.0
 
-    zcrit = Statistics2.pnormaldist(1 - (significance / sides))
-    zpow = Statistics2.pnormaldist(power)
+    zcrit = Statistics2PureRuby.pnormaldist(1 - (significance / sides))
+    zpow = Statistics2PureRuby.pnormaldist(power)
 
     numerator = (zcrit * Math.sqrt(2 * pbar * (1 - pbar)) + zpow * Math.sqrt(p2 * (1 - p2) + p1 * (1 - p1)))**2
     denominator = (p2 - p1)**2
@@ -27,7 +27,7 @@ module ABAnalyzer
   def self.confidence_interval(successes, trials, confidence)
     sides = 2.0
     alpha = 1 - confidence
-    zcrit = Statistics2.pnormaldist(1 - (alpha / sides))
+    zcrit = Statistics2PureRuby.pnormaldist(1 - (alpha / sides))
     p = successes.to_f / trials
 
     interval = zcrit * Math.sqrt((p * (1 - p)) / trials.to_f)

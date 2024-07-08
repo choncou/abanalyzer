@@ -3,7 +3,7 @@
 require 'minitest/autorun'
 require 'abanalyzer'
 
-class ABTestTest < MiniTest::Test
+class ABTestTest < Minitest::Test
   def setup
     @values = { rep: { male: 200, female: 250 }, dem: { male: 150, female: 300 }, ind: { male: 50, female: 50 } }
   end
@@ -28,10 +28,10 @@ class ABTestTest < MiniTest::Test
   def test_results
     abt = ABAnalyzer::ABTest.new @values
 
-    chisquare = 1 - Statistics2.chi2dist(2, 16.2037037037037)
+    chisquare = 1 - Statistics2PureRuby.chi2dist(2, 16.2037037037037)
     assert_equal abt.chisquare_p, chisquare
 
-    gtest = 1 - Statistics2.chi2dist(2, 2 * 8.13286375180066)
+    gtest = 1 - Statistics2PureRuby.chi2dist(2, 2 * 8.13286375180066)
     assert_equal abt.gtest_p, gtest
   end
 end
