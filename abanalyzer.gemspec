@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
   s.test_files = s.files.grep(%r{^(test|spec|features)/})
   s.homepage = 'https://github.com/bmuller/abanalyzer'
   s.require_paths = ['lib']
+  s.required_ruby_version = '>= 2.4'
   s.add_development_dependency('minitest', '~> 5.14')
   s.add_development_dependency('rake', '~> 13.0')
   s.add_development_dependency('rubocop', '~> 0.81')
-  s.add_dependency('statistics2', '= 0.54')
 end
