@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'statistics2'
+require 'statistics2-pure-ruby'
 
 module ABAnalyzer
   # Calculate the minimum sample size (per group) based on the desire to detect
